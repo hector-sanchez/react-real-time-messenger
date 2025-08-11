@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Real-Time Messenger
 
-Currently, two official plugins are available:
+A real-time chat application built with React, TypeScript, Vite, and Supabase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- User authentication (login/register)
+- Create and join chat rooms
+- Real-time messaging with instant updates
+- Room list and chat dashboard
+- Modern, responsive UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Supabase](https://supabase.com/) (for authentication and real-time database)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Node.js (v18+ recommended)
+- npm or yarn
+- Supabase project (see below)
+
+### Setup
+
+1. **Clone the repository:**
+  ```sh
+  git clone https://github.com/your-username/real-time-messenger.git
+  cd real-time-messenger
+  ```
+
+2. **Install dependencies:**
+  ```sh
+  npm install
+  # or
+  yarn install
+  ```
+
+3. **Configure environment variables:**
+  - Copy `.env.example` to `.env` and fill in your Supabase credentials:
+    ```sh
+    cp .env.example .env
+    ```
+  - Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in `.env`.
+
+4. **Start the development server:**
+  ```sh
+  npm run dev
+  # or
+  yarn dev
+  ```
+  The app will be available at [http://localhost:5173](http://localhost:5173).
+
+## Project Structure
+
+- `src/components/` – Reusable UI components (Auth, Navbar, ChatMessages, etc.)
+- `src/pages/` – Main pages (RoomList, ChatRoom, CreateRoom)
+- `src/store/` – State management (chatStore)
+- `src/supabaseClient.ts` – Supabase client setup
+
+## Deployment
+
+You can deploy this app to Vercel, Netlify, or any static hosting provider. Make sure to set the required environment variables in your deployment settings.
+
+## License
+
+MIT
